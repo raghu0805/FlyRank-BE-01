@@ -41,6 +41,20 @@ app.get("/tasks/:id", (req, res) => {
 });
 
 
+//Post Routes
+//create task
+app.post("/tasks",(req,res)=>{
+    const data=req.body;
+    if(!data){
+        return res.status(400).json({message:"Bad Request" });
+    }
+    if(!data.title){
+        return res.status(400).json({message:"Bad Request" });
+    }
+    db.push({id:db.length+1,title,done:false});
+    return res.status(201).json({message:"Created"});
+})
+
 
 
 app.listen(port, () => {
