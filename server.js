@@ -8,7 +8,7 @@ import taskRoutes from "./routes/task.js";
 dotenv.config();
 const app = express();
 app.use(express.json());
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 app.use("/",taskRoutes);
 //startup enpoint
 app.get("/", (req, res) => {
